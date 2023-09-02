@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import Header from './components/Header.vue'
 import Grid from './components/grid/Index.vue'
+
+import { ref } from 'vue'
+
+const menuIsActive = ref(false)
 </script>
 
 <template>
-  <Header />
+  <Header @toggleMenu="$event => menuIsActive = $event" />
 
   <main>
     <Grid />
