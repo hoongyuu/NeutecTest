@@ -33,11 +33,13 @@ const syncIsActive = computed({
 <style scoped lang="scss">
 .hamburger {
   width: 35px;
-  height: 27px;
+  height: 28px;
   position: relative;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
   cursor: pointer;
+  // 修正可能會導致出現 x 軸滾動
+  overflow: hidden;
 
   span {
     display: block;
