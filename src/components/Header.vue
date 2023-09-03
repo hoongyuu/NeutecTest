@@ -25,10 +25,13 @@ watch(menuIsActive, (newVal) => {
 header {
   background-color: #fff;
   border-bottom: 1px solid #eaeaea;
-  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 16px;
+
+  h1 {
+    margin-top: 3px;
+  }
 }
 </style>
