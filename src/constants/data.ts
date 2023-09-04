@@ -82,7 +82,7 @@ export const MENU_DATA: MenuItem[] = [
         text: "卡布奇諾"
       }, {
         key: "ce8",
-        text: "摩卡"
+        text: "摩卡",
       }]
     }]
   }

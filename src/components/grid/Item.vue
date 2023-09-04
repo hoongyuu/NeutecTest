@@ -2,9 +2,7 @@
 </script>
 
 <template>
-  <div class="grid-item">
-
-  </div>
+  <div class="grid-item" />
 </template>
 
 <style scoped lang="scss">
