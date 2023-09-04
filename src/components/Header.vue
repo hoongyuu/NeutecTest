@@ -1,13 +1,19 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { computed } from "vue";
 import Hamburger from "../components/Hamburger.vue";
 
-const emit = defineEmits(["toggleMenu"]);
+const props = defineProps({
+  menuIsActive: {
+    type: Boolean,
+    default: false,
+  },
+});
 
-const menuIsActive = ref(false);
+const emit = defineEmits(['update:menuIsActive']);
 
-watch(menuIsActive, (newVal) => {
-  emit("toggleMenu", newVal);
+const syncMenuIsActive = computed({
+  get: () => props.menuIsActive,
+  set: (value: boolean) => emit('update:menuIsActive', value)
 })
 </script>
 
@@ -16,7 +22,7 @@ watch(menuIsActive, (newVal) => {
     <h1>日新測驗</h1>
 
     <div>
-      <Hamburger v-model:is-active="menuIsActive" />
+      <Hamburger v-model:is-active="syncMenuIsActive" />
     </div>
   </header>
 </template>

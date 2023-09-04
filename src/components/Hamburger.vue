@@ -10,12 +10,8 @@ const props = defineProps({
 const emit = defineEmits(['update:isActive'])
 
 const syncIsActive = computed({
-  get() {
-    return props.isActive
-  },
-  set(value) {
-    emit('update:isActive', value)
-  }
+  get: () => props.isActive,
+  set: (value) => emit('update:isActive', value)
 })
 </script>
 
