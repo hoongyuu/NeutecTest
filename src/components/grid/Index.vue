@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import CircleAnimation from './CircleAnimation.vue';
 import GridItem from './Item.vue'
 </script>
 
@@ -8,6 +9,8 @@ import GridItem from './Item.vue'
       :num="num">
     </GridItem>
   </div>
+
+  <CircleAnimation />
 </template>
 
 <style scoped lang="scss">
