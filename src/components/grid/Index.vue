@@ -4,7 +4,9 @@ import GridItem from './Item.vue'
 
 <template>
   <div class="grid">
-    <GridItem v-for="(num) in 9" :key="num" :is-flash="[3, 5, 9].includes(num)">{{ num }}</GridItem>
+    <GridItem v-for="(num) in 9" :key="num" :is-flash="[3, 5, 9].includes(num)" :circle="[1, 3, 7, 9].includes(num)"
+      :num="num">
+    </GridItem>
   </div>
 </template>
 
