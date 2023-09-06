@@ -3,13 +3,6 @@
 import { onMounted, ref } from 'vue';
 import * as PIXI from "pixi.js";
 
-const CIRCLE_RADIUS = 15
-const circles = ref<PIXI.Graphics[]>([])
-const app = ref<PIXI.Application | null>(null)
-
-const getItemElement = (itemNum: number): DOMRect =>
-  document.querySelector(`#grid-item-${itemNum}`)!.getBoundingClientRect()
-
 const directionMap = {
   '12': 'right',
   '13': 'right',
@@ -80,6 +73,21 @@ const optionsMap = {
   },
 }
 
+const CIRCLE_RADIUS = 15
+const circles = ref<PIXI.Graphics[]>([])
+const app = ref<PIXI.Application | null>(null)
+
+const getItemElement = (itemNum: number): DOMRect =>
+  document.querySelector(`#grid-item-${itemNum}`)!.getBoundingClientRect()
+
+const getCoordinate = (item: DOMRect) => {
+  const { x, y, width, height } = item
+  return {
+    x: x + width / 2,
+    y: y + height / 2
+  }
+}
+
 const drawCircle = ({ start, end, direction }: {
   start: number,
   end: number,
@@ -96,23 +104,14 @@ const drawCircle = ({ start, end, direction }: {
   let formattedStart = start
   let formattedEnd = end
   if (['leftUp', 'leftDown', 'rightUp', 'rightDown'].includes(circle.direction)) {
-    const { start, end } = optionsMap[circle.direction]
-    formattedStart = start
-    formattedEnd = end
+    ({ start: formattedStart, end: formattedEnd } = optionsMap[circle.direction])
   }
-  const { x: startX, y: startY, width: startW, height: startH } = getItemElement(start)
-  const { x: formattedStartX, y: formattedStartY, width: formattedStartW, height: formattedStartH } = getItemElement(formattedStart)
-  circle.startCenter = {
-    x: formattedStartX + formattedStartW / 2,
-    y: formattedStartY + formattedStartH / 2
-  }
+  circle.startCenter = getCoordinate(getItemElement(formattedStart))
   if (formattedEnd) {
-    const { x: endX, y: endY, width: endW, height: endH } = getItemElement(formattedEnd)
-    circle.endCenter = {
-      x: endX + endW / 2,
-      y: endY + endH / 2
-    }
+    circle.endCenter = getCoordinate(getItemElement(formattedEnd))
   }
+
+  const { x: startX, y: startY, width: startW, height: startH } = getItemElement(start)
   circle.beginFill(0xA5F12B);
   circle.drawCircle(0, 0, CIRCLE_RADIUS);
   circle.endFill()
