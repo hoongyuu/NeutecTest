@@ -30,25 +30,15 @@ export default defineComponent({
       const isSelected = computed(() => checkKeyIncludesPath(item.key));
 
       return children.length > 0 ? (
-        <li>
-          <div
-            class={isSelected.value ? "isSelected" : ""}
-            onClick={() => handleItemClick(item, parent)}
-          >
-            {item.text}
-          </div>
+        <li key={item.key} class={isSelected.value ? "isSelected" : ""}>
+          <div onClick={() => handleItemClick(item, parent)}>{item.text}</div>
           <ul v-show={isSelected.value}>
             {children.map((children) => recursiveRender(children, item))}
           </ul>
         </li>
       ) : (
-        <li key="{item.id}">
-          <div
-            class={isSelected.value ? "isSelected" : ""}
-            onClick={() => handleItemClick(item, parent)}
-          >
-            {item.text}
-          </div>
+        <li key={item.key} class={isSelected.value ? "isSelected" : ""}>
+          <div onClick={() => handleItemClick(item, parent)}>{item.text}</div>
         </li>
       );
     };

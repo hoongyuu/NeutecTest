@@ -2,19 +2,19 @@
   height: 100vh;
   width: 200px;
 
-  ul {
-    padding-left: 12px;
-  }
-  
   li {
-  
-    &,
+    padding: 8px 12px;
+
     div {
       padding: 8px 0;
     }
-  }
-}
 
-.isSelected {
-  color: #22a091;
+    &.isSelected {
+      background-color: #777;
+
+      & > div {
+        color: greenyellow;
+      }
+    }
+  }
 }
