@@ -1,18 +1,21 @@
-# Vue 3 + TypeScript + Vite
+# 測驗
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 額外需求
 
-## Recommended IDE Setup
+### 主頁面九宮格動畫
+- 請使用兩種以上的動畫執行方式，來繪製動畫
+  - 方格使用 `CSS Animation` 實現
+  - 球形動畫使用 `Canvas` 實現
+- 四顆球同時朝同一個座標點移動
+  - 開場時預設 `[1,3,7,9]` 會向右行進
+- 請在效能考量下，設計可同時存在一百顆球、且指定飛行起終點的結構
+  - 使用 `Canvas` 去優化動畫執行效能
+  - 在頁面內有**工具**可以新增球形動畫，並可以設定起終點
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support For `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+### 側邊選單
+- 另提供一個下拉選單，需包含所有種類。從下拉選單中選取任一項目時，等同點擊該項目
+  - 使用 `DFS` 演算法去遞迴資料獲取選取項目路徑
+- 請實作記憶功能，關閉分頁後再開啟，可以顯示上次選取的項目
+  - 使用 `localStorage` 實現
+- 請在效能考量下，設計可收合、展開最多一百層的選單
+  - 使用虛擬滾動的方式實現，可以減少許多不必要的渲染
