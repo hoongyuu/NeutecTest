@@ -16,9 +16,16 @@ const gridRef = ref<InstanceType<typeof Grid> | null>(null)
   <Header v-model:menu-is-active="menuIsVisible" />
 
   <main class="main">
-    <section class="main-header">
-      <MenuSelect class="main-header-menu-select" />
-      <CircleSelect class="main-header-circle-select" @submit="gridRef?.drawCircle" />
+    <section class="main-tools">
+      <div class="main-tools-item">
+        <h2>選擇側邊選單目錄</h2>
+        <MenuSelect class="main-tools-menu-select" />
+      </div>
+
+      <div class="main-tools-item">
+        <h2>圓形飛行起終點</h2>
+        <CircleSelect class="main-tools-circle-select" @submit="gridRef?.drawCircle" />
+      </div>
     </section>
 
     <section class="main-grid">
@@ -36,12 +43,19 @@ const gridRef = ref<InstanceType<typeof Grid> | null>(null)
   flex-direction: column;
   padding: 20px 16px;
 
-  &-header {
-    &-menu-select {
-      margin-bottom: 20px;
-    }
+  &-tools {
+    &-item {
+      h2 {
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
 
-    &-circle-select {}
+      &+& {
+        border-top: 1px solid #ccc;
+        margin-top: 16px;
+        padding-top: 16px;
+      }
+    }
   }
 
   &-grid {

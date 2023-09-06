@@ -87,6 +87,7 @@ const handleSubmit = () => {
 
   &-submit {
     height: 30px;
+    font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
