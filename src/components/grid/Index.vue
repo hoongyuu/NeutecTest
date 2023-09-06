@@ -1,6 +1,20 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import CircleAnimation from './CircleAnimation.vue';
 import GridItem from './Item.vue'
+
+const circle = ref<InstanceType<typeof CircleAnimation> | null>(null)
+
+const drawCircle = (options: {
+  start: number,
+  end: number
+}) => {
+  circle.value?.drawCircle(options)
+}
+
+defineExpose({
+  drawCircle
+})
 </script>
 
 <template>
@@ -10,7 +24,7 @@ import GridItem from './Item.vue'
     </GridItem>
   </div>
 
-  <CircleAnimation />
+  <CircleAnimation ref="circle" />
 </template>
 
 <style scoped lang="scss">

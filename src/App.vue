@@ -5,8 +5,11 @@ import Header from './components/Header.vue'
 import Grid from './components/grid/Index.vue'
 import AsideMenu from './components/aside/Index.vue'
 import MenuSelect from './components/MenuSelect.vue';
+import CircleSelect from './components/CircleSelect.vue';
 
 const menuIsVisible = ref(false)
+
+const gridRef = ref<InstanceType<typeof Grid> | null>(null)
 </script>
 
 <template>
@@ -14,11 +17,12 @@ const menuIsVisible = ref(false)
 
   <main class="main">
     <section class="main-header">
-      <MenuSelect class="menu-select" />
+      <MenuSelect class="main-header-menu-select" />
+      <CircleSelect class="main-header-circle-select" @submit="gridRef?.drawCircle" />
     </section>
 
     <section class="main-grid">
-      <Grid />
+      <Grid ref="gridRef" />
     </section>
   </main>
 
@@ -31,6 +35,14 @@ const menuIsVisible = ref(false)
   display: flex;
   flex-direction: column;
   padding: 20px 16px;
+
+  &-header {
+    &-menu-select {
+      margin-bottom: 20px;
+    }
+
+    &-circle-select {}
+  }
 
   &-grid {
     flex: 1;

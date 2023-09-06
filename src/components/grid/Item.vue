@@ -14,7 +14,7 @@ const props = defineProps({
 <template>
   <div :id="`grid-item-${props.num}`" :class="['grid-item', { 'isFlash': props.isFlash }]">
     <div class="grid-item-content">
-      <slot />
+      {{ props.num }}
     </div>
   </div>
 </template>
