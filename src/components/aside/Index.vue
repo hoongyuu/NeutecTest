@@ -52,13 +52,7 @@ onUnmounted(() => {
   <aside :class="['aside-menu', {
     active: syneIsVisible
   }]">
-    <nav>
-      <ul>
-        <template v-for="(item) in data" :key="item.key">
-          <Item :data="item" />
-        </template>
-      </ul>
-    </nav>
+    <Item :data="data" />
   </aside>
 </template>
 
@@ -78,26 +72,5 @@ onUnmounted(() => {
   &.active {
     right: 0;
   }
-
-  nav {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    padding-left: 16px;
-    padding-right: 28px;
-  }
-
-  ul {
-    padding-left: 12px;
-  }
-
-  li {
-
-    &,
-    div {
-      padding: 8px 0;
-    }
-  }
 }
 </style>
-./Item.tsx
