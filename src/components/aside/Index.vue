@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PropType, computed, onMounted, onUnmounted } from 'vue';
 import { MenuItem } from '../../types'
-import Item from "./Item.tsx";
+import List from "./List.tsx";
 import { selectedPath } from '../../store/menu';
 
 const props = defineProps({
@@ -52,7 +52,7 @@ onUnmounted(() => {
   <aside :class="['aside-menu', {
     active: syneIsVisible
   }]">
-    <Item :data="data" />
+    <List :data="data" />
   </aside>
 </template>
 
