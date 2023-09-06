@@ -42,7 +42,7 @@ const syncIsActive = computed({
     position: absolute;
     height: 5px;
     width: 50%;
-    background: #d3531a;
+    background: #22a091;
     opacity: 1;
     transform: rotate(0deg);
     transition: .25s ease-in-out;

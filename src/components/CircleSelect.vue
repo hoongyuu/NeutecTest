@@ -92,7 +92,7 @@ const handleSubmit = () => {
     justify-content: center;
     align-items: center;
     padding: 0 10px;
-    background-color: #2265bc;
+    background-color: #22a091;
     color: #f5f5f5;
   }
 }
